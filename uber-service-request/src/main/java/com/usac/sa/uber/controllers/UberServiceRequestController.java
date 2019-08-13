@@ -12,7 +12,7 @@ import java.util.Set;
 @Controller
 public class UberServiceRequestController {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/uber/service-request")
+    @RequestMapping(method = RequestMethod.GET, value = "/uber-service-request")
     @ResponseBody
     public Set<UberServiceRequest> getAllServices() {
         return UberServiceRequestRegistration.getInstance().getAll();
