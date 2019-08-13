@@ -12,7 +12,11 @@ public class Service {
     private String host;
     private int port;
 
-    List<Method> methods;
+    private List<Method> methods;
+
+    public Service() {
+        this.methods = new ArrayList<>();
+    }
 
     public String getId() {
         return id;
@@ -63,9 +67,6 @@ public class Service {
     }
 
     public List<Method> getMethods() {
-        if (methods == null) {
-            this.methods =  new ArrayList<>();
-        }
         return methods;
     }
 

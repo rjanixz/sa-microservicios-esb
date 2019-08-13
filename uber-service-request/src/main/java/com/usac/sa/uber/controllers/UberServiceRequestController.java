@@ -3,10 +3,7 @@ package com.usac.sa.uber.controllers;
 import com.usac.sa.uber.UberServiceRequestRegistration;
 import com.usac.sa.model.UberServiceRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -22,8 +19,12 @@ public class UberServiceRequestController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/uber-service-request/add")
     @ResponseBody
-    public UberServiceRequest addUberServiceRequest(@RequestBody UberServiceRequest serviceRequest) {
-        UberServiceRequestRegistration.getInstance().add(serviceRequest);
-        return serviceRequest;
+    public UberServiceRequest addUberServiceRequest(@RequestParam String userId, @RequestParam String from, @RequestParam String to) {
+        UberServiceRequest uberServiceRequest = new UberServiceRequest();
+        uberServiceRequest.setUserId(userId);
+        uberServiceRequest.setFrom(from);
+        uberServiceRequest.setTo(to);
+        UberServiceRequestRegistration.getInstance().add(uberServiceRequest);
+        return uberServiceRequest;
     }
 }
