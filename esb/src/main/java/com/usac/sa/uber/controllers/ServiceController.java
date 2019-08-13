@@ -1,7 +1,7 @@
-package com.usac.sa.esb.controllers;
+package com.usac.sa.uber.controllers;
 
-import com.usac.sa.esb.ServiceRegistration;
-import com.usac.sa.esb.beans.Service;
+import com.usac.sa.uber.ServiceRegistration;
+import com.usac.sa.uber.beans.Service;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

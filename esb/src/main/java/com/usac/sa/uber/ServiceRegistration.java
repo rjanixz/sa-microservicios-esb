@@ -1,6 +1,6 @@
-package com.usac.sa.esb;
+package com.usac.sa.uber;
 
-import com.usac.sa.esb.beans.Service;
+import com.usac.sa.uber.beans.Service;
 
 import java.util.HashSet;
 import java.util.Set;

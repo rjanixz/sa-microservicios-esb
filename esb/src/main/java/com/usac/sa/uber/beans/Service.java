@@ -1,4 +1,4 @@
-package com.usac.sa.esb.beans;
+package com.usac.sa.uber.beans;
 
 public class Service {
 

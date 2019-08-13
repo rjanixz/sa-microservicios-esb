@@ -23,6 +23,7 @@
 
 	<modules>
 		<module>esb</module>
+		<module>uber-service-request</module>
 	</modules>
 
 </project>
