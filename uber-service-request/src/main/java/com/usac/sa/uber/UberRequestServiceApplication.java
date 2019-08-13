@@ -1,8 +1,8 @@
 package com.usac.sa.uber;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.usac.sa.model.Method;
 import com.usac.sa.model.Service;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -38,6 +38,19 @@ public class UberRequestServiceApplication {
 		uberRequestService.setPort(8091);
 		uberRequestService.setRootPath("/uber-service-request");
 
+		Method listAll = new Method();
+		listAll.setPath("/list");
+		listAll.setType(Method.TYPE.GET);
+
+		Method addRequest = new Method();
+		addRequest.setPath("/add");
+		addRequest.setType(Method.TYPE.GET);
+		addRequest.getParameters().add("userId");
+		addRequest.getParameters().add("from");
+		addRequest.getParameters().add("to");
+
+		uberRequestService.getMethods().add(listAll);
+		uberRequestService.getMethods().add(addRequest);
 
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(ESB_URL);

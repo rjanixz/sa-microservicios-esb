@@ -1,6 +1,6 @@
 package com.usac.sa.uber;
 
-import com.usac.sa.uber.beans.UberServiceRequest;
+import com.usac.sa.model.UberServiceRequest;
 
 import java.util.HashSet;
 import java.util.Set;

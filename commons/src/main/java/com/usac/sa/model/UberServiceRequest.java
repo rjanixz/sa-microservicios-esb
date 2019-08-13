@@ -1,4 +1,4 @@
-package com.usac.sa.uber.beans;
+package com.usac.sa.model;
 
 public class UberServiceRequest {
 

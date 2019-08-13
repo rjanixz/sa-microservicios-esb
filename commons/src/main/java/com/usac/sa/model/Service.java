@@ -1,5 +1,8 @@
 package com.usac.sa.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Service {
 
     private String id;
@@ -8,6 +11,8 @@ public class Service {
     private String rootPath;
     private String host;
     private int port;
+
+    List<Method> methods;
 
     public String getId() {
         return id;
@@ -55,6 +60,17 @@ public class Service {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public List<Method> getMethods() {
+        if (methods == null) {
+            this.methods =  new ArrayList<>();
+        }
+        return methods;
+    }
+
+    public void setMethods(List<Method> methods) {
+        this.methods = methods;
     }
 
     @Override
