@@ -25,6 +25,7 @@
 		<module>esb</module>
 		<module>commons</module>
 		<module>uber-service-request</module>
+		<module>uber-driver-notification</module>
 		<module>uber-gps-location</module>
 	</modules>
 

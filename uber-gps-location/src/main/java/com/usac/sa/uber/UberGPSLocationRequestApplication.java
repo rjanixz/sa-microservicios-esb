@@ -15,7 +15,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class UberGPSLocationRequestApplication {
 
-	public static final String ESB_URL = "http://127.0.0.1:8090/esb/services";
+	/**
+	 * ESB endpoint
+	 */
+	private static final String ESB_URL = "http://127.0.0.1:8090/esb/services";
 
 
 	public static void main(String[] args) {
@@ -38,22 +41,22 @@ public class UberGPSLocationRequestApplication {
 		uberGPSLocationRequest.setPort(8093);
 		uberGPSLocationRequest.setRootPath("/uber-gps-location-request");
 
-		Method listAll = new Method();
-		listAll.setPath("/list");
-		listAll.setType(Method.TYPE.GET);
+		Method listMethod = new Method();
+		listMethod.setPath("/list");
+		listMethod.setType(Method.TYPE.GET);
 
-		Method addRequest = new Method();
-		addRequest.setPath("/add");
-		addRequest.setType(Method.TYPE.GET);
-		addRequest.getParameters().add("driverId");
+		Method addMethod = new Method();
+		addMethod.setPath("/add");
+		addMethod.setType(Method.TYPE.GET);
+		addMethod.getParameters().add("driverId");
 
 		Method findMethod = new Method();
 		findMethod.setPath("/find");
 		findMethod.setType(Method.TYPE.GET);
 		findMethod.getParameters().add("requestId");
 
-		uberGPSLocationRequest.getMethods().add(listAll);
-		uberGPSLocationRequest.getMethods().add(addRequest);
+		uberGPSLocationRequest.getMethods().add(listMethod);
+		uberGPSLocationRequest.getMethods().add(addMethod);
 		uberGPSLocationRequest.getMethods().add(findMethod);
 
 		CloseableHttpClient client = HttpClients.createDefault();

@@ -5,6 +5,9 @@ import com.usac.sa.model.UberServiceRequest;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This Singleton class emulates the database by providing options to add, remove and find requests
+ */
 public class UberServiceRequestRegistration {
 
     private Set<UberServiceRequest> registeredRequests;

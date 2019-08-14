@@ -13,7 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UberRequestServiceApplication {
+public class UberDriverNotificationApplication {
 
 	/**
 	 * ESB endpoint
@@ -27,39 +27,45 @@ public class UberRequestServiceApplication {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		SpringApplication.run(UberRequestServiceApplication.class, args);
+		SpringApplication.run(UberDriverNotificationApplication.class, args);
 
 	}
 
 
 	public static void register() throws Exception {
-		Service uberRequestService = new Service();
-		uberRequestService.setDescription("Service that allows the users to request for an Uber");
-		uberRequestService.setHost("localhost");
-		uberRequestService.setId("uber-request-service");
-		uberRequestService.setName("Uber Request Service");
-		uberRequestService.setPort(8091);
-		uberRequestService.setRootPath("/uber-service-request");
+		Service uberGPSLocationRequest = new Service();
+		uberGPSLocationRequest.setDescription("Service that allows drivers to look for their notifications.");
+		uberGPSLocationRequest.setHost("localhost");
+		uberGPSLocationRequest.setId("uber-driver-notifications");
+		uberGPSLocationRequest.setName("Uber Driver Notifications");
+		uberGPSLocationRequest.setPort(8092);
+		uberGPSLocationRequest.setRootPath("/uber-driver-notification");
 
-		Method listMethod = new Method();
-		listMethod.setPath("/list");
-		listMethod.setType(Method.TYPE.GET);
+		Method allMethod = new Method();
+		allMethod.setPath("/list");
+		allMethod.setType(Method.TYPE.GET);
 
 		Method addMethod = new Method();
 		addMethod.setPath("/add");
 		addMethod.setType(Method.TYPE.GET);
+		addMethod.getParameters().add("driverId");
 		addMethod.getParameters().add("userId");
 		addMethod.getParameters().add("from");
-		addMethod.getParameters().add("to");
 
-		uberRequestService.getMethods().add(listMethod);
-		uberRequestService.getMethods().add(addMethod);
+		Method findMethod = new Method();
+		findMethod.setPath("/find");
+		findMethod.setType(Method.TYPE.GET);
+		findMethod.getParameters().add("driverId");
+
+		uberGPSLocationRequest.getMethods().add(allMethod);
+		uberGPSLocationRequest.getMethods().add(addMethod);
+		uberGPSLocationRequest.getMethods().add(findMethod);
 
 		CloseableHttpClient client = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(ESB_URL);
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonStr = gson.toJson(uberRequestService);
+		String jsonStr = gson.toJson(uberGPSLocationRequest);
 		StringEntity entity = new StringEntity(jsonStr);
 		httpPost.setEntity(entity);
 

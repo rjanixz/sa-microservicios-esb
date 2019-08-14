@@ -1,20 +1,22 @@
 package com.usac.sa.uber;
 
 import com.usac.sa.model.UberGPSLocationRequest;
-import com.usac.sa.model.UberServiceRequest;
 
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * This Singleton class emulates the database by providing options to add, remove and find requests
+ */
 public class UberGPSLocationRequestRegistration {
 
-    private Set<UberGPSLocationRequest> registeredRequests;
+    private Set<UberGPSLocationRequest> uberGPSLocationRequests;
 
     private static UberGPSLocationRequestRegistration uberGPSLocationRequestRegistration = null;
 
     private UberGPSLocationRequestRegistration() {
-        registeredRequests = new HashSet<>();
+        uberGPSLocationRequests = new HashSet<>();
     }
 
     public static UberGPSLocationRequestRegistration getInstance() {
@@ -26,18 +28,18 @@ public class UberGPSLocationRequestRegistration {
     }
 
     public void add(UberGPSLocationRequest service) {
-        registeredRequests.add(service);
+        uberGPSLocationRequests.add(service);
     }
 
     public void remove(UberGPSLocationRequest service) {
-        registeredRequests.remove(service);
+        uberGPSLocationRequests.remove(service);
     }
 
     public Set<UberGPSLocationRequest> getAll() {
-        return registeredRequests;
+        return uberGPSLocationRequests;
     }
 
     public Optional<UberGPSLocationRequest> find(String requestId) {
-        return registeredRequests.stream().filter(r -> r.getRequestId().equalsIgnoreCase(requestId)).findFirst();
+        return uberGPSLocationRequests.stream().filter(r -> r.getRequestId().equalsIgnoreCase(requestId)).findFirst();
     }
 }
