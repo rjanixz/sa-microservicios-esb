@@ -13,7 +13,7 @@ http://localhost:8090/esb/service/uber-service-request/add?userId=rjanixz&from=u
 
 # Uber Driver Notification
 http://localhost:8090/esb/service/uber-driver-notification/list
-http://localhost:8090/esb/service/uber-driver-notification/find?requestId=driver01
+http://localhost:8090/esb/service/uber-driver-notification/find?driverId=driver01
 http://localhost:8090/esb/service/uber-driver-notification/add?driverId=driver01&userId=rjanixz&from=zona10
 
 # Uber GPS Location Request
