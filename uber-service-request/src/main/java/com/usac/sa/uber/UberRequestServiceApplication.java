@@ -25,7 +25,7 @@ public class UberRequestServiceApplication {
 		try {
 			register();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("*** No ESB found");
 		}
 		SpringApplication.run(UberRequestServiceApplication.class, args);
 	}

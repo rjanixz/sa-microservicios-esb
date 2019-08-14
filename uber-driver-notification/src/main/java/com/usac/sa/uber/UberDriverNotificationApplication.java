@@ -25,7 +25,7 @@ public class UberDriverNotificationApplication {
 		try {
 			register();
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("*** No ESB found");
 		}
 		SpringApplication.run(UberDriverNotificationApplication.class, args);
 
