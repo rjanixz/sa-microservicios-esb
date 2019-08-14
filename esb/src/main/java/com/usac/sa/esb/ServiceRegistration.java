@@ -3,6 +3,7 @@ package com.usac.sa.esb;
 import com.usac.sa.model.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class ServiceRegistration {
@@ -33,5 +34,9 @@ public class ServiceRegistration {
 
     public Set<Service> getAll() {
         return registeredServices;
+    }
+
+    public Optional<Service> find(final String rootPath) {
+        return registeredServices.stream().filter(service -> service.getRootPath().equalsIgnoreCase(rootPath)).findFirst();
     }
 }

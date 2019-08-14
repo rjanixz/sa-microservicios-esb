@@ -2,6 +2,7 @@ package com.usac.sa.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Service {
 
@@ -72,6 +73,10 @@ public class Service {
 
     public void setMethods(List<Method> methods) {
         this.methods = methods;
+    }
+
+    public Optional<Method> find(String methodPath) {
+        return methods.stream().filter(m -> m.getPath().equalsIgnoreCase(methodPath)).findFirst();
     }
 
     @Override
