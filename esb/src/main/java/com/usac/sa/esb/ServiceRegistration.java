@@ -28,8 +28,9 @@ public class ServiceRegistration {
         registeredServices.add(service);
     }
 
-    public void deregister(Service service) {
-        registeredServices.remove(service);
+    public void deregister(String serviceId) {
+        Optional<Service> service = registeredServices.stream().filter(s -> s.getId().equalsIgnoreCase(serviceId)).findFirst();
+        service.ifPresent(value -> registeredServices.remove(value));
     }
 
     public Set<Service> getAll() {

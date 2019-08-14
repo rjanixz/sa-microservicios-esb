@@ -1,0 +1,22 @@
+Software Avanzado - Lab
+Tarea 2 y 3
+Rainman Sián - 200815284
+
+# ESB
+http://localhost:8090/esb/services
+POST http://localhost:8090/esb/services
+http://localhost:8090/esb/services/delete?serviceId=uber-request-service
+
+# Uber Service Request
+http://localhost:8090/esb/service/uber-service-request/list
+http://localhost:8090/esb/service/uber-service-request/add?userId=rjanixz&from=usac&to=obelisco
+
+# Uber Driver Notification
+http://localhost:8090/esb/service/uber-driver-notification/list
+http://localhost:8090/esb/service/uber-driver-notification/find?requestId=driver01
+http://localhost:8090/esb/service/uber-driver-notification/add?driverId=driver01&userId=rjanixz&from=zona10
+
+# Uber GPS Location Request
+http://localhost:8090/esb/service/uber-gps-location-request/list
+http://localhost:8090/esb/service/uber-gps-location-request/add?driverId=driver1
+http://localhost:8090/esb/service/uber-gps-location-request/find?requestId=BWX6W43

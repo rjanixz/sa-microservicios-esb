@@ -28,7 +28,6 @@ public class UberRequestServiceApplication {
 			e.printStackTrace();
 		}
 		SpringApplication.run(UberRequestServiceApplication.class, args);
-
 	}
 
 

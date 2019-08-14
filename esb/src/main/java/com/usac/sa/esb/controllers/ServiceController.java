@@ -35,6 +35,15 @@ public class ServiceController {
         return service;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/esb/services/delete")
+    @ResponseBody
+    public String register(@RequestParam String serviceId) {
+        ServiceRegistration.getInstance().deregister(serviceId);
+        return "{" +
+                "\"MESSAGE\": \"Requested service unregistered successfully\"" +
+                "}";
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/esb/service/*/*")
     @ResponseBody
     public String invoke(@RequestParam Map<String, String> params, HttpServletRequest request) {
