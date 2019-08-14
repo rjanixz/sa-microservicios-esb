@@ -31,6 +31,10 @@ public class UberRequestServiceApplication {
 	}
 
 
+	/**
+	 * This methods describes all the methods provided by this service and post it to the ESB
+	 * @throws Exception
+	 */
 	public static void register() throws Exception {
 		Service uberRequestService = new Service();
 		uberRequestService.setDescription("Service that allows the users to request for an Uber");

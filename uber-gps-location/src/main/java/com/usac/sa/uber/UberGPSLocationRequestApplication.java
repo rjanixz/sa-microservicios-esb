@@ -31,7 +31,10 @@ public class UberGPSLocationRequestApplication {
 
 	}
 
-
+	/**
+	 * This methods describes all the methods provided by this service and post it to the ESB
+	 * @throws Exception
+	 */
 	public static void register() throws Exception {
 		Service uberGPSLocationRequest = new Service();
 		uberGPSLocationRequest.setDescription("Service that allows admins to locate vehicles");

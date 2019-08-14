@@ -1,11 +1,8 @@
 # ESB
 
-first compile
+To compile compile
 
-`mvn clean package`
+`mvn clean compile package`
+`mvn install`
 
-then execute
-
-`java -jar target/esb-0.0.1-SNAPSHOT.jar`
-
-got to `htt://localhost:8983/api/services` to list all the services
+This module provides commons classes for the ESB and micro-services.
