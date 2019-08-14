@@ -94,12 +94,12 @@ public class ServiceController {
                 }
             } else {
                 return "{" +
-                        "\"ERROR\": \"El methodo solicitado no ha sido registrado\"" +
+                        "\"ERROR\": \"Requested method doesn't exists\"" +
                         "}";
             }
         } else {
             return "{" +
-                    "\"ERROR\": \"El servicio solicitado no existe o no está disponible\"" +
+                    "\"ERROR\": \"Requested service either doesn't exist or is unavailable right now\"" +
                     "}";
         }
     }
