@@ -2,16 +2,14 @@ package com.usac.sa.uber.controllers;
 
 import com.usac.sa.model.UberGPSLocationRequest;
 import com.usac.sa.uber.UberGPSLocationRequestRegistration;
-import com.usac.sa.model.UberServiceRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.crypto.spec.GCMParameterSpec;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Optional;
-import java.util.Random;
 import java.util.Set;
 
 @Controller
@@ -53,7 +51,7 @@ public class UberGPSLocationRequestController {
 
 
     private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    public static String randomRequestId() {
+    private static String randomRequestId() {
         StringBuilder builder = new StringBuilder();
         int count = 7;
         while (count-- != 0) {
